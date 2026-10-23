@@ -38,13 +38,14 @@
     "reset-hard": "git clean -dfx && git reset --hard && npm i",
     "prepare-release": "run-s reset-hard test cov:check doc:html version doc:publish",
     "purge:cdn": "run-s purge:cdn:*",
-    "purge:cdn:solana": "npx req https://purge.jsdelivr.net/gh/solana-labs/token-list@main/src/tokens/solana.tokenlist.json"
+    "purge:cdn:solana": "req https://purge.jsdelivr.net/gh/solana-labs/token-list@main/src/tokens/solana.tokenlist.json"
   },
   "engines": {
     "node": ">=10"
   },
   "resolutions": {
-    "@babel/traverse": "7.23.2"
+    "@babel/traverse": "7.23.2",
+    "minimist": "1.2.8"
   },
   "devDependencies": {
     "@ava/typescript": "^1.1.1",
@@ -63,7 +64,6 @@
     "eslint-plugin-import": "^2.22.0",
     "gh-pages": "^5.0.0",
     "npm-run-all": "^4.1.5",
-    "npx": "^10.2.2",
     "nyc": "^15.1.0",
     "open-cli": "^6.0.1",
     "prettier": "^2.1.1",
